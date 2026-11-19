@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Poster Digital: Desain, Etika, dan Diseminasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{--bg:#f2efe6;--fg:#000;--card:#fff;--y:#ffe600;--p:#ff6ec7;--b:#6ad1ff;--g:#8dff6b;--ink:#000;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161616;--fg:#fff;--card:#232323}}
+:root[data-theme="dark"]{--bg:#161616;--fg:#fff;--card:#232323}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0 auto;background:var(--bg);color:var(--fg);font:500 17px/1.55 "Space Grotesk",system-ui,Arial,sans-serif;max-width:1000px;padding:16px}
+h1,h2,h3{line-height:1.05;margin:0 0 12px;font-weight:700}
+h1{font-size:clamp(40px,9vw,84px);letter-spacing:-2px}
+h2{font-size:clamp(28px,5vw,42px)}h3{font-size:22px}
+.box{border:4px solid var(--fg);background:var(--card);box-shadow:8px 8px 0 var(--fg);padding:20px;margin:0 0 28px}
+.hero{background:var(--p);color:var(--ink);transform:rotate(1deg)}
+.hero p{max-width:60ch}
+.tag{display:inline-block;border:3px solid var(--ink);background:var(--y);color:var(--ink);padding:2px 10px;font-weight:700;margin:0 6px 8px 0}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:8px 0;background:var(--bg)}
+button{font:700 16px "Space Grotesk",sans-serif;border:4px solid var(--fg);background:var(--card);color:var(--fg);padding:8px 14px;cursor:pointer;box-shadow:4px 4px 0 var(--fg);transition:transform .08s,box-shadow .08s}
+button:hover{background:var(--y);color:var(--ink)}
+button:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--fg)}
+button:focus-visible,input:focus-visible{outline:4px solid var(--p);outline-offset:3px}
+button.on{background:var(--b);color:var(--ink)}
+.view{display:none}.view.show{display:block}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;align-items:center}
+.ok{background:var(--g)!important;color:var(--ink)!important}.no{background:var(--p)!important;color:var(--ink)!important}
+.note{border:3px dashed var(--fg);padding:10px;margin:12px 0}
+.bar{height:26px;border:4px solid var(--fg);background:var(--card)}
+.bar i{display:block;height:100%;width:0;background:var(--g);transition:width .3s}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{border:3px solid var(--fg);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--y);color:var(--ink)}
+td.hl,th.hl{background:var(--b);color:var(--ink)}
+.scroll{overflow-x:auto}
+.q{margin:14px 0}.q button{display:block;width:100%;text-align:left;margin:8px 0}
+.two{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:24px;align-items:start}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+/* poster */
+.poster{position:relative;aspect-ratio:4/5;width:100%;max-width:320px;border:4px solid var(--fg);overflow:hidden;background:repeating-linear-gradient(45deg,#e0556b 0 14px,#3dc4a8 14px 28px,#f5a623 28px 42px);color:#000;padding:6%;display:flex;flex-direction:column;justify-content:space-between;container-type:inline-size}
+.poster>*{position:relative;z-index:2;margin:0}
+.poster .ov{position:absolute;inset:0;background:#0F172A;opacity:0;z-index:1}
+.poster .h{font-weight:700;line-height:1.05}.poster .s{}.poster .i{}
+.poster .art{align-self:center;width:60%;aspect-ratio:1;border:3px solid #000;background:#fff;display:grid;place-items:center;font-size:12cqw;position:relative;overflow:hidden}
+.poster .wm{position:absolute;inset:0;display:grid;place-items:center;transform:rotate(-30deg);font:700 6cqw sans-serif;color:rgba(0,0,0,.45);letter-spacing:1px}
+.poster .cr{font:400 3cqw "Space Mono",monospace;display:none}
+/* bug states */
+.poster.b1{color:#fff700}
+.poster:not(.b1){color:#F8FAFC}.poster:not(.b1) .ov{opacity:.6}
+.poster.b1 .art{color:#000}
+.poster:not(.b1) .art{color:#000}
+.poster.b2 .h{font-family:Impact,fantasy}.poster.b2 .s{font-family:"Brush Script MT",cursive;text-align:center}.poster.b2 .i{font-family:"Courier New",monospace;text-align:center}.poster.b2 .d{font-family:Georgia,serif;font-style:italic}
+.poster:not(.b2){font-family:"Space Grotesk",sans-serif}.poster:not(.b2) .h{font-weight:700;text-align:left}.poster:not(.b2) .s,.poster:not(.b2) .i{text-align:left;font-weight:500}
+.poster.b3 .h{font-size:9cqw}.poster.b3 .s{font-size:9cqw}.poster.b3 .i{font-size:9cqw}
+.poster:not(.b3) .h{font-size:12cqw}.poster:not(.b3) .s{font-size:8cqw}.poster:not(.b3) .i{font-size:4cqw}
+.poster.b4 .wm{display:grid}.poster:not(.b4) .wm{display:none}
+.poster:not(.b4) .cr{display:block;color:inherit}
+.poster:not(.b4) .art{background:#FACC15}
+.swatch{display:inline-block;width:28px;height:28px;border:3px solid var(--fg);vertical-align:middle}
+.pal{display:flex;height:70px;border:4px solid var(--fg)}
+.pal div{display:grid;place-items:center;font-weight:700;color:var(--ink);transition:flex .2s}
+input[type=color]{width:56px;height:44px;border:4px solid var(--fg);padding:0;background:var(--card);cursor:pointer}
+input[type=text]{flex:1;min-width:0;font:700 16px "Space Mono",monospace;border:4px solid var(--fg);padding:8px;background:var(--card);color:var(--fg)}
+label.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}
+label.ck input{width:24px;height:24px;margin-top:2px;accent-color:#000;flex:none}
+.wf{position:relative;width:100%;max-width:240px;aspect-ratio:4/5;border:4px solid var(--fg);background:var(--card)}
+.wf .m{position:absolute;inset:5.5%;border:2px dashed var(--p)}
+.wf div.z{position:absolute;left:5.5%;right:5.5%;display:grid;place-items:center;font:700 12px "Space Mono",monospace;background:#c8c8c8;color:#000;border:2px solid #000}
+.spw{container-type:inline-size;width:100%}
+.sp{position:relative;aspect-ratio:4/5;width:100%;overflow:hidden;border:4px solid var(--fg);display:flex;flex-direction:column;justify-content:space-between;gap:2cqw;padding:6cqw;font-family:"Space Grotesk",sans-serif}
+.sp *{margin:0}
+.sp.s1,.sp.s2{background:#fff;color:#000}
+.sp.s3,.sp.s4,.sp.s5{background:#0F172A;color:#F8FAFC}
+.sp .mg{position:absolute;inset:6cqw;border:.6cqw dashed #ff6ec7;pointer-events:none;z-index:3}
+.z1{flex:1;border:.6cqw solid #000;background:#cfcfcf;color:#000;display:grid;place-items:center;text-align:center;font:700 3.6cqw "Space Mono",monospace}
+.p1{font-size:6cqw;font-weight:700}.p2{font-size:12cqw;font-weight:700;line-height:1.02}.p2.ac{color:#FACC15}
+.zm{display:flex;gap:3cqw;align-items:center}
+.art{flex:none;width:32cqw;aspect-ratio:1;border:.8cqw solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:4cqw;background:#ddd;color:#000}
+.art.ya{font-size:17cqw;background:#FACC15;border-color:#F8FAFC}
+.sp ul{list-style:none;padding:0;display:grid;gap:2cqw;flex:1}
+.sp li{font-size:4cqw;line-height:1.25}
+.sp li.cd{background:#F8FAFC;color:#0F172A;padding:2cqw;border-left:1.4cqw solid #FACC15}
+.cta{font-weight:700;font-size:5cqw;padding:2.2cqw;border:.6cqw solid currentColor}
+.cta.cy{background:#FACC15;color:#0F172A;border-color:#FACC15}
+.tg{font-size:4cqw;margin-top:1.5cqw}
+.id{display:flex;gap:2cqw;align-items:center;margin-top:2cqw;font:400 2.6cqw/1.3 "Space Mono",monospace}
+.lg{background:#F8FAFC;color:#0F172A;padding:1.5cqw;font:700 4cqw "Space Grotesk",sans-serif}
+.wmk{position:absolute;inset:0;display:grid;place-items:center;font:700 22cqw "Space Grotesk",sans-serif;transform:rotate(-28deg);opacity:.16;pointer-events:none;z-index:2;color:#fff;white-space:nowrap}
+.ph{border:4px solid var(--fg);border-radius:22px;padding:10px;background:var(--card);box-shadow:6px 6px 0 var(--fg)}
+.ph .sp{border-width:2px}.phh{font:700 14px "Space Mono",monospace;padding:4px 4px 8px}.phc{font-size:13px;line-height:1.4;padding:8px 4px 2px}
+.fld{display:block;margin:6px 0;font-size:14px;font-weight:700}.fld input{display:block;width:100%;margin-top:2px;font-weight:500;font-size:14px}
+.mini{margin:12px 0}.mini .mp{max-width:240px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+<button data-v="mulai">Mulai</button>
+<button data-v="p1">1. Alat Desain</button>
+<button data-v="p2">2. Debug Poster</button>
+<button data-v="p3">3-4. Mini Project</button>
+<button data-v="rubrik">Rubrik</button>
+<button id="tema" aria-label="Ganti tema">Tema</button>
+</nav>
+
+<section class="view" id="v-mulai">
+<div class="box hero">
+<span class="tag">Fase E / Kelas X</span><span class="tag">16 JP</span><span class="tag">Canva</span>
+<h1>Poster yang dibaca dalam 3 detik.</h1>
+<p>Kamu akan merancang poster kampanye keamanan digital dari kanvas kosong, memperbaiki desain yang rusak, lalu membagikannya dengan etis dan aman.</p>
+<button data-v="p1" style="background:var(--ink);color:#fff;border-color:var(--ink)">Mulai Pertemuan 1</button>
+</div>
+<div class="box">
+<h2>Yang akan kamu capai</h2>
+<ul>
+<li>Membandingkan Canva, Figma, Adobe Illustrator, dan Inkscape.</li>
+<li>Merancang poster dengan hierarki visual, tipografi, teori warna, dan grid.</li>
+<li>Menemukan dan memperbaiki kesalahan desain: teks bertumpuk, kontras rendah, aset ilegal.</li>
+<li>Memproduksi poster dengan aset Creative Commons, watermark, dan diseminasi yang aman.</li>
+</ul>
+</div>
+<div class="box"><h2>Progres belajarmu</h2><div class="bar"><i id="bar"></i></div><p id="progtxt">0 dari 5 level selesai.</p></div>
+</section>
+
+<section class="view" id="v-p1">
+<div class="box">
+<h2>Pertemuan 1: Prinsip sama, alat beda</h2>
+<p>Studi kasus: poster kampanye "Anti-Phishing dan Keamanan Password", ukuran A4 atau Instagram Portrait (1080 x 1350 px). Klik nama alat untuk menyorot kolomnya.</p>
+<div class="row" id="tools"><button data-c="1" class="on">Canva</button><button data-c="2">Figma</button><button data-c="3">Illustrator</button><button data-c="4">Inkscape</button></div>
+<div class="scroll"><table id="cmp">
+<tr><th>Aspek</th><th>Canva (fokus)</th><th>Figma</th><th>Adobe Illustrator</th><th>Inkscape</th></tr>
+<tr><td><b>Platform</b></td><td>Web dan mobile (cloud)</td><td>Web dan desktop (cloud)</td><td>Desktop (proprietary)</td><td>Desktop (open-source, gratis)</td></tr>
+<tr><td><b>Tipe grafis</b></td><td>Hybrid raster dan vektor dasar</td><td>Vektor dan UI prototyping</td><td>Vektor presisi tinggi</td><td>Vektor presisi tinggi (SVG)</td></tr>
+<tr><td><b>Sistem layout</b></td><td>Drag-and-drop + Smart Guides</td><td>Frame, Auto-Layout, Grid</td><td>Artboard dan Rulers</td><td>Page, Guides, Align</td></tr>
+<tr><td><b>Keunggulan</b></td><td>Cepat, banyak template dan aset</td><td>Kolaborasi real-time ringan</td><td>Standar industri cetak dan ilustrasi rumit</td><td>Gratis total tanpa lisensi berbayar</td></tr>
+<tr><td><b>Ekspor utama</b></td><td>PNG, JPG, PDF Print</td><td>PNG, JPG, SVG, PDF</td><td>AI, EPS, PDF, SVG</td><td>SVG, PNG, PDF</td></tr>
+</table></div>
+</div>
+<div class="box"><h3>Kuis cepat</h3><div id="quiz1"></div></div>
+</section>
+
+<section class="view" id="v-p2">
+<div class="box">
+<h2>Pertemuan 2: Debug poster yang rusak</h2>
+<p>Poster di bawah punya 4 visual bug. Klik tombol untuk memperbaikinya satu per satu dan lihat perubahannya.</p>
+<div class="two">
+<div>
+<div class="poster b1 b2 b3 b4" id="poster">
+<div class="ov"></div>
+<p class="h">JANGAN ASAL KLIK FILE APK</p>
+<p class="s">Modus kurir paket dan undangan nikah palsu bisa menguras saldo rekeningmu.</p>
+<div class="art">🛡️<div class="wm">SHUTTERSTOCK</div></div>
+<p class="i d">Cek ekstensi file sebelum unduh. Aktifkan verifikasi 2 langkah. Kampanye Kelas X PPLG.</p>
+<p class="cr">Ilustrasi: CC0, Pexels</p>
+</div>
+<p id="skor" class="note" style="max-width:320px">0 dari 4 bug diperbaiki.</p>
+</div>
+<div>
+<div id="bugs"></div>
+</div>
+</div>
+</div>
+<div class="box">
+<h2>Cek kontras warna</h2>
+<p>Standar keterbacaan WCAG AA: rasio minimal 4,5 untuk teks biasa.</p>
+<div class="row"><label>Teks <input type="color" id="c1" value="#FACC15"></label><label>Latar <input type="color" id="c2" value="#0F172A"></label></div>
+<div id="cprev" style="padding:16px;border:4px solid var(--fg);font-weight:700;font-size:22px">Waspada penipuan APK!</div>
+<p id="cres" class="note"></p>
+</div>
+</section>
+
+<section class="view" id="v-p3">
+<div class="box">
+<h2>Pertemuan 3 dan 4: Mini Project</h2>
+<p>Studi kasus panduan: poster SPMB SMK MUTU. Tema kampanye keamanan digital (Penipuan APK/Phishing, Jejak Digital dan Privasi Data, atau Stop Cyberbullying) memakai langkah yang sama. Bangun dari kanvas kosong, jangan pakai template utuh, dan kerjakan Level 1 sampai 5 berurutan. Tiap level menampilkan gambaran poster setelah level itu selesai.</p>
+<div class="row">
+<span class="tag" style="background:var(--b)">Siswa A: Content dan Ethics Researcher</span>
+<span class="tag" style="background:var(--g)">Siswa B: Visual Designer</span>
+<span class="tag">Siswa C: QC dan Disseminator</span>
+</div>
+</div>
+<div class="box">
+<h2>Studio Poster SPMB SMK MUTU</h2>
+<p>Panduan membuat poster Penerimaan Murid Baru yang baik. Ubah isi poster di kolom kanan, lalu pilih level untuk melihat bagaimana poster tumbuh dari kerangka sampai siap unggah. Ganti semua isian dalam tanda [ ] dengan data resmi sekolah.</p>
+<div class="two">
+<div><div id="studio"></div><div class="row" id="stbtn" style="margin-top:12px"></div><button id="phbtn">Lihat di layar HP</button></div>
+<div><p class="note" id="stcap"></p><div id="flds"></div></div>
+</div>
+</div>
+<div id="levels"></div>
+</section>
+
+<section class="view" id="v-rubrik">
+<div class="box">
+<h2>Rubrik penilaian proyek</h2>
+<div class="scroll"><table>
+<tr><th>Kriteria</th><th>Baru Berkembang (1)</th><th>Layak (2)</th><th>Cakap (3)</th><th>Mahir (4)</th></tr>
+<tr><td><b>Tata Letak dan Hierarki</b></td><td>Teks bertumpuk, melewati margin, sulit dibaca.</td><td>Rapi, tetapi ukuran judul dan isi kurang kontras.</td><td>Margin aman, alur baca jelas, komposisi seimbang.</td><td>Profesional: grid, whitespace proporsional, hierarki 3 detik.</td></tr>
+<tr><td><b>Tipografi dan Warna</b></td><td>Terlalu banyak font, warna bertabrakan.</td><td>Warna baik, perataan teks belum konsisten.</td><td>Maksimal 2 font, palet harmonis 60-30-10.</td><td>Tipografi tajam, kontras memenuhi standar aksesibilitas.</td></tr>
+<tr><td><b>Etika dan Hak Cipta</b></td><td>Gambar ber-watermark komersial atau karya orang tanpa izin.</td><td>Aset gratis, kredit belum dicantumkan.</td><td>Aset CC0/royalty-free secara legal.</td><td>Patuh lisensi, atribusi valid, menyematkan lisensi karya (CC).</td></tr>
+<tr><td><b>Keamanan dan Diseminasi</b></td><td>File buram/pecah atau membocorkan data pribadi.</td><td>Resolusi baik, caption sangat minim.</td><td>File tajam, aman dari kebocoran data, disebar etis.</td><td>Ekspor optimal, watermark halus, narasi persuasif dan faktual.</td></tr>
+</table></div>
+</div>
+<div class="box ok"><h3>Tantangan lanjutan</h3><p>Buat moodboard, palet kode HEX, dan copywriting dalam satu lembar brief desain, lalu kerjakan soal HOTS seputar Creative Commons dan etika diseminasi.</p></div>
+</section>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const views=['mulai','p1','p2','p3','rubrik'];
+function route(){const h=(location.hash||'#mulai').slice(1),v=views.includes(h)?h:'mulai';
+ $$('.view').forEach(e=>e.classList.toggle('show',e.id==='v-'+v));
+ $$('#nav [data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v))}
+$$('[data-v]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.v;route();scrollTo(0,0)});
+addEventListener('hashchange',route);
+$('#tema').onclick=()=>{const r=document.documentElement;r.dataset.theme=getComputedStyle(r).getPropertyValue('--bg').trim()==='#161616'?'light':'dark'};
+
+/* P1 kolom */
+function hl(c){$$('#cmp tr').forEach(tr=>$$('th,td',tr).forEach((x,i)=>x.classList.toggle('hl',i===c)));$$('#tools button').forEach(b=>b.classList.toggle('on',+b.dataset.c===c))}
+$$('#tools button').forEach(b=>b.onclick=()=>hl(+b.dataset.c));hl(1);
+
+/* kuis */
+const qs=[
+{q:'Alat mana yang gratis sepenuhnya dan open-source?',o:['Inkscape','Illustrator','Canva'],a:0,e:'Inkscape bebas lisensi berbayar dan memakai format SVG.'},
+{q:'Alat mana yang paling cocok untuk kolaborasi real-time ringan?',o:['Illustrator','Figma','Inkscape'],a:1,e:'Figma berbasis cloud sehingga banyak orang bisa mengedit bersamaan.'},
+{q:'Apa yang universal di semua alat desain?',o:['Letak menu','Prinsip hierarki, tipografi, warna, dan grid','Format file bawaan'],a:1,e:'Alat boleh berbeda, prinsip desain visualnya sama.'}];
+qs.forEach((x,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML='<b></b><div></div><div class="note" hidden></div>';
+ $('b',d).textContent=(i+1)+'. '+x.q;
+ x.o.forEach((t,j)=>{const b=document.createElement('button');b.textContent=t;
+  b.onclick=()=>{$$('button',d).forEach(k=>k.classList.remove('ok','no'));b.classList.add(j===x.a?'ok':'no');const n=$('.note',d);n.hidden=false;n.textContent=(j===x.a?'Benar. ':'Belum tepat. ')+x.e};
+  $('div',d).appendChild(b)});$('#quiz1').appendChild(d)});
+
+/* P2 bugs */
+const bugs=[
+['b1','Bug 1: Kontras dan keterbacaan','Teks kuning terang di atas foto ramai tanpa overlay. Solusi: overlay gelap opacity 60% di belakang teks, atau palet kontras tinggi.'],
+['b2','Bug 2: Font overload','5 jenis huruf dan paragraf rata tengah. Solusi: maksimal 2 keluarga huruf (bold untuk judul, regular untuk isi), rata kiri.'],
+['b3','Bug 3: Hierarki visual','Judul sama besar dengan info. Solusi: rasio 3:2:1 (judul 48 pt, subjudul 24 pt, isi 14 pt).'],
+['b4','Bug 4: Etika hak cipta','Ilustrasi ber-watermark Shutterstock tanpa lisensi. Solusi: pakai aset CC0 atau bebas komersial dan cantumkan kredit.']];
+const P=$('#poster');
+function skor(){const n=bugs.filter(b=>!P.classList.contains(b[0])).length;$('#skor').textContent=n+' dari 4 bug diperbaiki.'+(n===4?' Poster sudah komunikatif dan etis.':'')}
+bugs.forEach(b=>{const d=document.createElement('div');d.className='note';d.innerHTML='<h3></h3><p></p><button>Perbaiki</button>';
+ $('h3',d).textContent=b[1];$('p',d).textContent=b[2];
+ const bt=$('button',d);bt.onclick=()=>{const fixed=P.classList.toggle(b[0]);bt.textContent=fixed?'Perbaiki':'Kembalikan bug';bt.classList.toggle('ok',!fixed);skor()};
+ $('#bugs').appendChild(d)});
+
+/* kontras */
+const lum=h=>{const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4));return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+function kontras(){const a=$('#c1').value,b=$('#c2').value,p=$('#cprev');p.style.color=a;p.style.background=b;
+ const l1=lum(a),l2=lum(b),r=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);
+ $('#cres').textContent='Rasio kontras '+r.toFixed(2).replace('.',',')+':1. '+(r>=7?'Sangat baik (lulus AAA).':r>=4.5?'Lulus AA untuk teks biasa.':r>=3?'Hanya cukup untuk teks besar. Perbaiki untuk teks biasa.':'Gagal. Teks akan sulit dibaca.')}
+$('#c1').oninput=$('#c2').oninput=kontras;kontras();
+
+/* P3 levels */
+const done=new Array(5).fill(false);
+function prog(){const n=done.filter(Boolean).length;$('#bar').style.width=n*20+'%';$('#progtxt').textContent=n+' dari 5 level selesai.'+(n===5?' Poster siap diterbitkan!':'')}
+const L=[
+['Level 1: Fondasi kanvas dan grid','Target: tentukan ukuran, margin aman, dan pembagian ruang.',['Buat kanvas Instagram Portrait 1080 x 1350 px atau A4 (210 x 297 mm).','Aktifkan Rulers dan Guides, buat margin aman 60 px di keempat sisi.','Buat wireframe abu-abu 3 zona: atas (judul), tengah (ilustrasi dan poin), bawah (ajakan dan identitas).'],'wf'],
+['Level 2: Tipografi dan hierarki','Target: pesan mudah dipindai mata dalam 3 detik.',['Headline 5-7 kata, besar dan tebal (contoh: "JANGAN ASAL KLIK FILE .APK!").','Sub-headline: 1 kalimat penjelas singkat.','Maksimal 3 poin pencegahan dengan ikon, tanpa paragraf panjang.','Call to action yang jelas dan spesifik.']],
+['Level 3: Teori warna dan aset legal','Target: palet harmonis dan ilustrasi bebas pelanggaran hak cipta.',['Terapkan aturan 60-30-10 (dominan, sekunder, aksen).','Masukkan 1 ilustrasi utama (focal point) di zona tengah.','Pastikan aset CC0 atau royalty-free, cantumkan sumber kecil jika CC-BY.'],'pal'],
+['Level 4: Etika dan proteksi karya','Target: lindungi karya dan privasi pembuat.',['Tambahkan nama kelompok, kelas, logo sekolah, dan lisensi (misal CC BY-NC 4.0).','Letakkan watermark halus dengan opacity 15%-20%.','Pastikan tidak ada data pribadi (nomor HP, alamat rumah, NIK).']],
+['Level 5: Ekspor dan diseminasi etis','Target: file tajam dan caption yang bertanggung jawab.',['Media sosial: ekspor PNG. Cetak mading: PDF Print (CMYK jika tersedia).','Unggah ke media sosial kelas, LMS, atau mading digital.','Tulis caption informatif, tagar edukatif, kredit sumber, bebas ujaran kebencian dan hoaks.'],'cap']];
+L.forEach((l,i)=>{const bx=document.createElement('div');bx.className='box';
+ bx.innerHTML='<h3></h3><p></p><div class="steps"></div><div class="extra"></div><div class="row"><button class="fin">Level selesai</button></div>';
+ $('h3',bx).textContent=l[0];$('p',bx).textContent=l[1];
+ l[2].forEach(s=>{const lb=document.createElement('label');lb.className='ck';lb.innerHTML='<input type="checkbox"><span></span>';$('span',lb).textContent=s;$('.steps',bx).appendChild(lb)});
+ const ex=$('.extra',bx);
+ if(l[3]==='wf')ex.innerHTML='<div class="wf"><div class="m"></div><div class="z" style="top:5.5%;height:20%">ZONA ATAS</div><div class="z" style="top:28%;height:44%">ZONA TENGAH</div><div class="z" style="bottom:5.5%;height:18%">ZONA BAWAH</div></div><p class="note">Garis putus-putus pink = margin aman 60 px.</p>';
+ if(l[3]==='pal')ex.innerHTML='<div class="row"><label>60% <input type="color" class="pc" value="#0F172A"></label><label>30% <input type="color" class="pc" value="#F8FAFC"></label><label>10% <input type="color" class="pc" value="#FACC15"></label></div><div class="pal"><div style="flex:60"></div><div style="flex:30"></div><div style="flex:10"></div></div><p class="note pt"></p>';
+ if(l[3]==='cap')ex.innerHTML='<div class="row"><input type="text" class="tp" placeholder="Topik poster, misal: phishing APK"><button class="gen">Buat kerangka caption</button></div><p class="note cp">Isi topik lalu klik tombol.</p>';
+ const mm=document.createElement('div');mm.className='mini';mm.innerHTML='<b>Gambaran hasil setelah Level '+(i+1)+'</b><div class="mp"></div><p class="note"></p>';ex.prepend(mm);(window.MI=window.MI||[]).push({el:$('.mp',mm),n:i+1,t:$('.note',mm)});
+ $('.fin',bx).onclick=function(){done[i]=!done[i];this.classList.toggle('ok',done[i]);prog()};
+ $('#levels').appendChild(bx)});
+function pal(){const cs=$$('.pc'),ds=$$('.pal div');if(!cs.length)return;cs.forEach((c,k)=>{ds[k].style.background=c.value;ds[k].textContent=c.value.toUpperCase()+' ('+[60,30,10][k]+'%)'});
+ const r=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+ $('.pt').textContent='Kontras warna aksen terhadap dominan: '+r(cs[2].value,cs[0].value).toFixed(1).replace('.',',')+':1 (target minimal 4,5).'}
+$$('.pc').forEach(c=>c.oninput=pal);pal();
+$('.gen').onclick=()=>{const t=$('.tp').value.trim()||'keamanan digital';
+ $('.cp').textContent='Waspada '+t+'! Poster ini dibuat oleh kelompok kami untuk mengajak teman-teman lebih aman di dunia digital. Poin pentingnya: [isi 3 poin dari poster]. Sumber data: [cantumkan referensi]. Aset: [sumber dan lisensi]. #LiterasiDigital #KeamananSiber. Mari berkomentar dengan sopan, tanpa ujaran kebencian dan hoaks.'};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function sp(n,d){let z;
+ if(n===1){z='<div class="z1" style="flex:2">ZONA ATAS<br>Judul / hook</div><div class="z1" style="flex:5">ZONA TENGAH<br>Ilustrasi + poin edukasi</div><div class="z1" style="flex:2">ZONA BAWAH<br>CTA + identitas</div>'}
+ else{const k=n>=3;
+ z='<div><p class="p1">'+esc(d.sub)+'</p><p class="p2">'+esc(d.h)+'</p><p class="p2'+(k?' ac':'')+'">'+esc(d.hk)+'</p></div>'
+ +'<div class="zm"><div class="art'+(k?' ya':'')+'">'+(k?'🎓':'ilustrasi')+'</div><ul>'+d.pts.map(p=>'<li'+(k?' class="cd"':'')+'>'+esc(p)+'</li>').join('')+'</ul></div>'
+ +'<div><p class="cta'+(k?' cy':'')+'">'+esc(d.cta)+'</p><p class="tg">'+esc(d.tgl)+'</p>'+(n>=4?'<div class="id"><b class="lg">MUTU</b><span>Kelompok [isi nama], Kelas X PPLG<br>Lisensi CC BY-NC 4.0. Ilustrasi: [sumber aset]</span></div>':'')+'</div>'}
+ return '<div class="spw"><div class="sp s'+n+'">'+(n<=2?'<i class="mg"></i>':'')+(n>=4?'<div class="wmk">SMK MUTU</div>':'')+z+'</div></div>'}
+const CAP=['Kerangka: kanvas 1080 x 1350 px, margin aman 60 px (garis pink putus-putus), dan 3 zona kosong. Belum ada isi.','Teks masuk dengan hierarki 3:2:1. Sengaja masih hitam putih agar kamu fokus pada struktur dan keterbacaan.','Palet 60-30-10: latar navy 60%, kartu terang 30%, aksen kuning 10%. Ilustrasi fokus ditambahkan di zona tengah.','Identitas pembuat, lisensi CC, kredit aset, dan watermark 15-20% ditambahkan. Tidak ada data pribadi.','Poster final siap ekspor PNG 1080 x 1350 px untuk media sosial atau PDF Print untuk mading, lengkap dengan caption.'];
+const FL=[['h','Judul baris 1','Wujudkan Masa Depan di'],['hk','Judul baris 2 (kata aksen)','SMK MUTU'],['sub','Sub-judul','SPMB SMK Muhammadiyah 1 Wonosobo'],['p1','Poin 1','Jurusan: PPLG dan [isi jurusan lain]'],['p2','Poin 2','Belajar lewat proyek dan praktik langsung'],['p3','Poin 3','Pendaftaran online, mudah dan cepat'],['cta','Ajakan (CTA)','Daftar sekarang: [isi tautan resmi]'],['tgl','Jadwal','Gelombang 1: [isi tanggal]']];
+const V={};FL.forEach(f=>V[f[0]]=f[2]);let stage=5,phone=false;
+const getD=()=>({h:V.h,hk:V.hk,sub:V.sub,pts:[V.p1,V.p2,V.p3],cta:V.cta,tgl:V.tgl});
+function refresh(){const d=getD();
+ const cp=V.h+' '+V.hk+'! '+V.sub+' membuka pendaftaran. '+V.tgl+'. Info lengkap lewat tautan resmi sekolah. Aset: [sumber dan lisensi]. #SPMB #SMKMUTU';
+ $('#studio').innerHTML=phone?'<div class="ph"><div class="phh">akun_sekolah</div>'+sp(stage,d)+'<p class="phc">'+(stage===5?esc(cp):'Caption belum ditulis (selesai di Level 5).')+'</p></div>':sp(stage,d);
+ $('#stcap').textContent='Level '+stage+': '+CAP[stage-1];
+ $$('#stbtn button').forEach(b=>b.classList.toggle('on',+b.dataset.s===stage));
+ $('#phbtn').textContent=phone?'Tampilan poster biasa':'Lihat di layar HP';
+ (window.MI||[]).forEach(m=>{m.el.innerHTML=sp(m.n,d);m.t.textContent=CAP[m.n-1]})}
+for(let s=1;s<=5;s++){const b=document.createElement('button');b.dataset.s=s;b.textContent='Level '+s;b.onclick=()=>{stage=s;refresh()};$('#stbtn').appendChild(b)}
+$('#phbtn').onclick=()=>{phone=!phone;refresh()};
+FL.forEach(f=>{const l=document.createElement('label');l.className='fld';l.textContent=f[1];const i=document.createElement('input');i.type='text';i.value=f[2];i.oninput=()=>{V[f[0]]=i.value;refresh()};l.appendChild(i);$('#flds').appendChild(l)});
+refresh();
+route();prog();
+</script>
+</body>
+</html>
